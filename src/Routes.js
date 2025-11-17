@@ -21,7 +21,7 @@ import Gallerylook from './core/Galleryimg';
 import Team from './core/Team';
 import About from './core/About';
 import Contact from './core/Contact';
-
+import ManageCategories from './admin/ManageCategory';
 const Routes = () => {
     return (
         <BrowserRouter>
@@ -45,6 +45,11 @@ const Routes = () => {
                 <PrivateRoute path="/admin/products" exact component={ManageProducts} />
                 <AdminRoute path="/admin/product/update/:productId" exact component={UpdateProduct} />
                 <AdminRoute path="/admin/category/update/:categoryId" exact component={UpdateCategory} />
+                <AdminRoute
+  path="/admin/categories"
+  exact
+  component={ManageCategories}
+/>
             </Switch>
         </BrowserRouter>
     );

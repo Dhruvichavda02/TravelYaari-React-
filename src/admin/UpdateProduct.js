@@ -9,12 +9,11 @@ const UpdateProduct = ({ match }) => {
     const [values, setValues] = useState({
         name: '',
         description: '',
-        price: '',
-        categories: [],
-        youtubelink:'',
+        price: 0,
+        youtubelink: '',
         category: '',
         shipping: '',
-        quantity: '',
+        quantity: 0,
         photo: '',
         loading: false,
         error: false,
@@ -22,17 +21,16 @@ const UpdateProduct = ({ match }) => {
         redirectToProfile: false,
         formData: ''
     });
-    const [categories, setCategories] = useState([]);
+    const [categoriesList, setCategoriesList] = useState([]);
 
     const { user, token } = isAuthenticated();
     const {
         name,
         description,
         price,
-        // categories,
+        youtubelink,
         category,
         shipping,
-        youtubelink,
         quantity,
         loading,
         error,
@@ -41,36 +39,35 @@ const UpdateProduct = ({ match }) => {
         formData
     } = values;
 
+    // Load product data
     const init = productId => {
         getProduct(productId).then(data => {
             if (data.error) {
                 setValues({ ...values, error: data.error });
             } else {
-                // populate the state
                 setValues({
                     ...values,
-                    name: data.name,
-                    description: data.description,
-                    price: data.price,
-                    youtubelink:data.youtubelink,
-                    category: data.category._id,
-                    shipping: data.shipping,
-                    quantity: data.quantity,
+                    name: data.name || '',
+                    description: data.description || '',
+                    price: data.price || 0,
+                    youtubelink: data.youtubelink || '',
+                    category: data.category?._id || '',
+                    shipping: data.shipping || '',
+                    quantity: data.quantity || 0,
                     formData: new FormData()
                 });
-                // load categories
                 initCategories();
             }
         });
     };
 
-    // load categories and set form data
+    // Load categories
     const initCategories = () => {
         getCategories().then(data => {
             if (data.error) {
                 setValues({ ...values, error: data.error });
             } else {
-                setCategories(data);
+                setCategoriesList(data);
             }
         });
     };
@@ -98,14 +95,17 @@ const UpdateProduct = ({ match }) => {
                     ...values,
                     name: '',
                     description: '',
+                    price: 0,
+                    quantity: 0,
+                    youtubelink: '',
+                    category: '',
+                    shipping: '',
                     photo: '',
-                    price: '',
-                    quantity: '',
-                    youtubelink:'',
                     loading: false,
                     error: false,
                     redirectToProfile: true,
-                    createdProduct: data.name
+                    createdProduct: data.name,
+                    formData: new FormData()
                 });
             }
         });
@@ -116,45 +116,78 @@ const UpdateProduct = ({ match }) => {
             <h4>Post Photo</h4>
             <div className="form-group">
                 <label className="btn btn-secondary">
-                    <input onChange={handleChange('photo')} type="file" name="photo" accept="image/*" />
+                    <input
+                        onChange={handleChange('photo')}
+                        type="file"
+                        name="photo"
+                        accept="image/*"
+                    />
                 </label>
             </div>
 
             <div className="form-group">
                 <label className="text-muted">Name</label>
-                <input onChange={handleChange('name')} type="text" className="form-control" value={name} />
+                <input
+                    onChange={handleChange('name')}
+                    type="text"
+                    className="form-control"
+                    value={name}
+                />
             </div>
+
             <div className="form-group">
-                <label className="text-muted">youtube link (Id only)</label>
-                <input onChange={handleChange('youtubelink')} type="text" className="form-control" value={youtubelink} placeholder=" not this -https://youtu.be/a4pi2zKbf8Q but this only- a4pi2zKbf8Q" />
+                <label className="text-muted">Youtube Link (Id only)</label>
+                <input
+                    onChange={handleChange('youtubelink')}
+                    type="text"
+                    className="form-control"
+                    value={youtubelink}
+                    placeholder="a4pi2zKbf8Q"
+                />
             </div>
+
             <div className="form-group">
                 <label className="text-muted">Description</label>
-                <textarea onChange={handleChange('description')} className="form-control" value={description} />
+                <textarea
+                    onChange={handleChange('description')}
+                    className="form-control"
+                    value={description}
+                />
             </div>
 
             <div className="form-group">
                 <label className="text-muted">Price</label>
-                <input onChange={handleChange('price')} type="number" className="form-control" value={price} />
+                <input
+                    onChange={handleChange('price')}
+                    type="number"
+                    className="form-control"
+                    value={price || 0}
+                    min="0"
+                />
             </div>
 
             <div className="form-group">
                 <label className="text-muted">Category</label>
-                <select onChange={handleChange('category')} className="form-control">
-                    <option>Please select</option>
-                    {categories &&
-                        categories.map((c, i) => (
-                            <option key={i} value={c._id}>
-                                {c.name}
-                            </option>
-                        ))}
+                <select
+                    onChange={handleChange('category')}
+                    className="form-control"
+                    value={category || ''}
+                >
+                    <option value="">Please select</option>
+                    {categoriesList.map((c, i) => (
+                        <option key={i} value={c._id}>{c.name}</option>
+                    ))}
                 </select>
             </div>
 
             <div className="form-group">
-                <label className="text-muted">Shipping</label>
-                <select onChange={handleChange('shipping')} className="form-control">
-                    <option>Please select</option>
+                <label className="text-muted">In Season?</label>
+                <select
+                    onChange={handleChange('shipping')}
+                    className="form-control"
+                    value={shipping || ''}
+                >
+                    <option value="">Please select</option>
                     <option value="0">No</option>
                     <option value="1">Yes</option>
                 </select>
@@ -162,7 +195,13 @@ const UpdateProduct = ({ match }) => {
 
             <div className="form-group">
                 <label className="text-muted">Quantity</label>
-                <input onChange={handleChange('quantity')} type="number" className="form-control" value={quantity} />
+                <input
+                    onChange={handleChange('quantity')}
+                    type="number"
+                    className="form-control"
+                    value={quantity || 0}
+                    min="0"
+                />
             </div>
 
             <button className="btn btn-outline-primary">Update Product</button>
@@ -189,15 +228,13 @@ const UpdateProduct = ({ match }) => {
         );
 
     const redirectUser = () => {
-        if (redirectToProfile) {
-            if (!error) {
-                return <Redirect to="/admin/products" />;
-            }
+        if (redirectToProfile && !error) {
+            return <Redirect to="/admin/products" />;
         }
     };
 
     return (
-        <Layout title="Add a new product" description={`G'day ${user.name}, ready to add a new product?`}>
+        <Layout title="Update Product" description={`G'day ${user.name}, ready to update a product?`}>
             <div className="row">
                 <div className="col-md-8 offset-md-2">
                     {showLoading()}

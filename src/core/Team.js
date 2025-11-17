@@ -36,11 +36,11 @@ export default function Team() {
                         <a href="https://github.com/shsarv">
                         <i className="fab fa-github fa-2x" aria-hidden="true"></i></a> &nbsp;&nbsp;&nbsp;
                         <a href="https://twitter.com/sarveshroli"> 
-                        <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                        <i className="fab fa-twitter fa-2x" aria-hidden="true"></i>
                         </a> &nbsp;&nbsp;&nbsp;
-                        <a href="https://www.linkedin.com/in/shsarv/"> <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                        <a href="https://www.linkedin.com/in/shsarv/"> <i className="fab fa-linkedin fa-2x" aria-hidden="true"></i>
                         </a>&nbsp;&nbsp;&nbsp;
-                        <a href="https://shsarv.medium.com/"> <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+                        <a href="https://shsarv.medium.com/"> <i className="fab fa-medium fa-2x" aria-hidden="true"></i>
                         </a>
                         </div>
                     </div>
@@ -69,11 +69,11 @@ export default function Team() {
                         <a href="https://github.com/shsarv">
                         <i className="fab fa-github fa-2x" aria-hidden="true"></i></a> &nbsp;&nbsp;&nbsp;
                         <a href="https://twitter.com/sarveshroli"> 
-                        <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                        <i className="fab fa-twitter fa-2x" aria-hidden="true"></i>
                         </a> &nbsp;&nbsp;&nbsp;
-                        <a href="https://www.linkedin.com/in/shsarv/"> <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                        <a href="https://www.linkedin.com/in/shsarv/"> <i className="fab fa-linkedin fa-2x" aria-hidden="true"></i>
                         </a>&nbsp;&nbsp;&nbsp;
-                        <a href="https://shsarv.medium.com/"> <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+                        <a href="https://shsarv.medium.com/"> <i className="fab fa-medium fa-2x" aria-hidden="true"></i>
                         </a>
                         </div>
                     </div>
@@ -103,11 +103,11 @@ export default function Team() {
                         <a href="https://github.com/shsarv">
                         <i className="fab fa-github fa-2x" aria-hidden="true"></i></a> &nbsp;&nbsp;&nbsp;
                         <a href="https://twitter.com/sarveshroli"> 
-                        <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                        <i className="fab fa-twitter fa-2x" aria-hidden="true"></i>
                         </a> &nbsp;&nbsp;&nbsp;
-                        <a href="https://www.linkedin.com/in/shsarv/"> <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                        <a href="https://www.linkedin.com/in/shsarv/"> <i className="fab fa-linkedin fa-2x" aria-hidden="true"></i>
                         </a>&nbsp;&nbsp;&nbsp;
-                        <a href="https://shsarv.medium.com/"> <i class="fab fa-medium fa-2x" aria-hidden="true"></i>
+                        <a href="https://shsarv.medium.com/"> <i className="fab fa-medium fa-2x" aria-hidden="true"></i>
                         </a>
                         </div>
                     </div>

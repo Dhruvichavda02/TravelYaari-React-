@@ -22,7 +22,7 @@ export default function HomeIcon() {
                 </div>
                 <div className="col-sm-12 col-md-4 mb-2">
                     <div className="card-body text-center homeicon-shadow rounded bg-white">
-                    <i class="fa fa-plane" aria-hidden="true"></i>
+                    <i className="fa fa-plane" aria-hidden="true"></i>
                         <h4 className="h2  m-2">Fly Cheap</h4>
                         <p>Dream. Explore. Discover.</p>
                     </div>

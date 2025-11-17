@@ -3,6 +3,7 @@ import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link, Redirect } from 'react-router-dom';
 import { getCategory, updateCategory } from './apiAdmin';
+import "../CSS/adminCategories.css"
 // {category: ["5cd0258f2793ec6e100bc191"], price: []}
 // http://localhost:3000/admin/category/update/5cd0258f2793ec6e100bc191
 const UpdateCategory = ({ match }) => {

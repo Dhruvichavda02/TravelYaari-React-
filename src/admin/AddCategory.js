@@ -28,6 +28,7 @@ const AddCategory = () => {
             } else {
                 setError("");
                 setSuccess(true);
+                 setName("");
             }
         });
     };

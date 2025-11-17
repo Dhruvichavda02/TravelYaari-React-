@@ -16,7 +16,7 @@ export default function Contact() {
                     <div className="card-body">
                         <ul className="list-group">
                             <li className="list-group-item">
-                                <h4 className="text-info"><i class="fa fa-thumb-tack fa-1x" aria-hidden="true"></i> Location</h4>
+                                <h4 className="text-info"><i className="fa fa-thumb-tack fa-1x" aria-hidden="true"></i> Location</h4>
                             </li>
                             <li className="list-group-item">TravelYaari Agency</li>
                             <li className="list-group-item ">Gorakhpur, Uttar Pradesh</li>

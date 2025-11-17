@@ -85,6 +85,8 @@ const AddProduct = () => {
                     photo: '',
                     price: '',
                     quantity: '',
+                    category: '',     // <-- reset category
+                shipping: '',
                     loading: false,
                     createdProduct: data.name
                 });
@@ -149,7 +151,7 @@ const AddProduct = () => {
 
             <div className="form-group">
                 <label className="text-muted">No of guides present</label>
-                <input onChange={handleChange('quantity')} type="number" className="form-control" value={quantity} />
+                <input onChange={handleChange('quantity')} type="number" className="form-control" value={quantity}   min="0"/>
             </div>
 
             <button className="btn btn-outline-primary">Create PLace</button>

@@ -106,7 +106,7 @@ const Card = ({
     <ShowImage item={product} url="product" className="img-thumbnail" />
     <h5 className="ml-2 text-success h5 font-weight-bold pb-2">{product.name}</h5>
   </div>
-  <div class="card-body m-0 p-0">
+  <div className="card-body m-0 p-0">
     <div className="d-flex justify-content-between mx-2 mb-0">
       <h6 className="font-weight-bold h6" style={{fontWeight:"600",fontSize:"0.8em",color:"#eb07c1"}}>{product.subname}</h6>
       <StarRating />
@@ -115,7 +115,7 @@ const Card = ({
   </div>
 </div>
   <div className="text-justify m-2 p-2" style={{fontSize:"14px",fontWeight:"500"}}>
-    <p classname="text-justify">{product.description.substring(0, 400)}</p>
+    <p className="text-justify">{product.description.substring(0, 400)}</p>
     {showViewButton(showViewProductButton)}
     {showAddToCartBtn(showAddToCartButton)}
     {showRemoveButton(showRemoveProductButton)}

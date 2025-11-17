@@ -35,12 +35,12 @@ const Dashboard = () => {
                 <ul className="list-group">
                     <li className="list-group-item font-weight-bold">
                         <Link className="nav-link" to="/cart">
-                        <i class="fa fa-picture-o" aria-hidden="true"> </i> My Wishlisted places
+                        <i className="fa fa-picture-o" aria-hidden="true"> </i> My Wishlisted places
                         </Link>
                     </li>
                     <li className="list-group-item font-weight-bold">
                         <Link className="nav-link" to={`/profile/${_id}`}>
-                        <i class="fa fa-cog fa-spin fa-1x fa-fw"></i>  Update My Profile
+                        <i className="fa fa-cog fa-spin fa-1x fa-fw"></i>  Update My Profile
                         </Link>
                     </li>
                 </ul>
@@ -53,9 +53,9 @@ const Dashboard = () => {
             <div className="card mb-5 mt-4">
                 <h3 className="card-header bg-success text-white font-weight-bold text-center">User Information</h3>
                 <ul className="list-group">
-                    <li className="list-group-item  text-info font-weight-bold"><i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp; {name}</li>
-                    <li className="list-group-item  text-info font-weight-bold"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp; {email}</li>
-                    <li className="list-group-item  text-info font-weight-bold"><i class="fa fa-registered" aria-hidden="true"></i> &nbsp;
+                    <li className="list-group-item  text-info font-weight-bold"><i className="fa fa-user-circle" aria-hidden="true"></i> &nbsp; {name}</li>
+                    <li className="list-group-item  text-info font-weight-bold"><i className="fa fa-envelope" aria-hidden="true"></i> &nbsp; {email}</li>
+                    <li className="list-group-item  text-info font-weight-bold"><i className="fa fa-registered" aria-hidden="true"></i> &nbsp;
                         {role === 1 ? "Admin" : "Registered Travelyaari User 😇"}
                     </li>
                 </ul>
