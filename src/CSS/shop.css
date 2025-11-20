@@ -1,0 +1,72 @@
+/* WRAPPER for search + filter */
+.search-filter-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    position: relative;
+}
+
+/* SEARCH BAR */
+.search-bar-container {
+    width: 280px;
+}
+
+.search-bar-container input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-bar-container input:focus {
+    border-color: #28a745;
+}
+
+/* FILTER ICON */
+.filter-icon {
+    margin-left: 15px;
+    background: #28a745;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-icon:hover {
+    background: #1e7e34;
+}
+
+/* POPUP FILTER */
+.filter-popup {
+    position: absolute;
+    top: 65px;
+    right: 10px;
+    width: 250px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    display: none;
+    z-index: 999;
+}
+
+.filter-popup.show-filter {
+    display: block;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .search-filter-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-popup {
+        right: 0;
+        width: 100%;
+    }
+}

@@ -1,10 +1,56 @@
-.fa-map-marker,.fa-building,.fa-plane{
-    font-size: 70px;
+/* Container Section Background */
+.homeicon-section {
+    background: #f5fdf7; /* light greenish white */
+    padding: 50px 0;
+}
+
+/* Card Wrapper */
+.homeicon-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    border: 2px solid #d9f5df; /* light green border */
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.08);
+    transition: all 0.4s ease-in-out;
+    height: 100%;
+}
+
+/* Hover Animation */
+.homeicon-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 128, 0, 0.18);
+    border-color: #4caf50; /* darker green on hover */
+}
+
+/* Icon Styling */
+.homeicon-icon {
+    font-size: 55px;
+    color: #2f8f46; /* premium green */
+    transition: color 0.3s, transform 0.4s;
+}
+
+/* Icon hover effects */
+.homeicon-card:hover .homeicon-icon {
     color: #4caf50;
+    transform: scale(1.1);
 }
-.homeicon-shadow{
-    box-shadow: 1px 2px 1px 2px rgb(194, 193, 193);
+
+/* Title */
+.homeicon-title {
+    font-weight: 700;
+    font-size: 22px;
+    color: #1f4d2e; /* dark green */
+    margin-top: 15px;
 }
-.homeicon-shadow:hover{
-    box-shadow: 1px 4px 1px 3px rgb(182, 180, 180);
+
+/* Subtitle */
+.homeicon-subtitle {
+    color: #4b6b57;
+    font-size: 15px;
+}
+
+/* Equal height cards (Bootstrap fix) */
+.homeicon-row > div {
+    display: flex;
 }

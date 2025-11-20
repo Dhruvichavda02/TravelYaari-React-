@@ -1,71 +1,63 @@
-/* #search{
-    background-color: #4caf50 !important;
-    color: white;
-} */
-.search-top-wrapper {
+/* Search Message Styling */
+.search-message {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px 0;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Green success message */
+.search-message-success {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* Red error message */
+.search-message-error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Search Results Grid */
+.search-results {
     display: flex;
-    justify-content: flex-end;
-    margin-top: -30px;
-    margin-bottom: 5px;
-    margin-right: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-/* Make search box smaller & aligned */
-#search {
-    width: 380px;
-    padding: 10px;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-}
-
-#search h1 {
-    font-size: 0; /* hide Search Destination text */
-}
-
-#search form {
+/* Search Bar Styling */
+.search-box {
     display: flex;
-    gap: 8px;
-    align-items: center;
+    gap: 10px;
 }
 
-#search select,
-#search input {
-    height: 38px;
+.search-input {
+    width: 260px;
+    height: 36px;
+    padding: 6px 10px;
+    border: 1px solid #aaa;
     border-radius: 6px;
 }
 
-#search button {
-    height: 38px;
+.search-btn {
+    height: 36px;
+    padding: 0 16px;
+    background: #007bff;
+    border: none;
     border-radius: 6px;
-    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .search-top-wrapper {
-        justify-content: center;
-        margin-right: 0;
-    }
-
-    #search {
-        width: 100%;
-    }
-
-    #search form {
-        flex-direction: column;
-    }
-
-    #search select,
-    #search input,
-    #search button {
-        width: 100%;
-    }
-}
-.search-top-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: -20px;
-    margin-bottom: 10px;
-    margin-right: 20px;
+.search-btn:hover {
+    background: #0056b3;
 }

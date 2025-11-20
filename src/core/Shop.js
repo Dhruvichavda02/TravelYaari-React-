@@ -1,150 +1,47 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./Layout";
+import { getProducts } from "./apiCore";
 import Card from "./Card";
-import { getCategories, getFilteredProducts } from "./apiCore";
-import Checkbox from "./Checkbox";
-import RadioBox from "./RadioBox";
-import Search from "./Search"; // <-- Added Search Component
-import { prices } from "./fixedPrices";
+import Search from "./Search";
+import "./../CSS/search.css";
 
 const Shop = () => {
-    const [myFilters, setMyFilters] = useState({ filters: { category: [], price: [], search: "" } });
-    const [categories, setCategories] = useState([]);
+    const [productsBySell, setProductsBySell] = useState([]);
     const [error, setError] = useState(false);
-    const [limit, setLimit] = useState(6);
-    const [skip, setSkip] = useState(0);
-    const [size, setSize] = useState(0);
-    const [filteredResults, setFilteredResults] = useState([]);
 
-    const init = () => {
-        getCategories().then(data => {
+    const loadProductsBySell = () => {
+        getProducts().then(data => {
             if (data.error) {
                 setError(data.error);
             } else {
-                setCategories(data);
+                setProductsBySell(data);
             }
         });
     };
-
-    const loadFilteredResults = newFilters => {
-        getFilteredProducts(skip, limit, newFilters).then(data => {
-            if (data.error) {
-                setError(data.error);
-            } else {
-                setFilteredResults(data.data);
-                setSize(data.size);
-                setSkip(0);
-            }
-        });
-    };
-
-    const loadMore = () => {
-        let toSkip = skip + limit;
-        getFilteredProducts(toSkip, limit, myFilters.filters).then(data => {
-            if (data.error) {
-                setError(data.error);
-            } else {
-                setFilteredResults([...filteredResults, ...data.data]);
-                setSize(data.size);
-                setSkip(toSkip);
-            }
-        });
-    };
-
-    const loadMoreButton = () => (
-        size > 0 && size >= limit && (
-            <button onClick={loadMore} className="btn btn-warning mb-5 font-weight-bold rounded">
-                Load more
-            </button>
-        )
-    );
 
     useEffect(() => {
-        init();
-        loadFilteredResults(myFilters.filters);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        loadProductsBySell();
     }, []);
 
-    const handleFilters = (filters, filterBy) => {
-        const newFilters = { ...myFilters };
-        newFilters.filters[filterBy] = filters;
-
-        if (filterBy === "price") {
-            let priceValues = handlePrice(filters);
-            newFilters.filters[filterBy] = priceValues;
-        }
-
-        setMyFilters(newFilters);
-        loadFilteredResults(newFilters.filters);
-    };
-
-    const handlePrice = value => {
-        const data = prices;
-        let array = [];
-        for (let key in data) {
-            if (data[key]._id === parseInt(value)) {
-                array = data[key].array;
-            }
-        }
-        return array;
-    };
-
     return (
-        <Layout title="" description="" className="">
-            {/* Search Bar */}
-            <div className="container-fluid bg-light p-3 shadow">
-                <Search handleSearch={term => handleFilters(term, "search")} />
+        <Layout
+            title="Incredible India"
+            description="Travel to the 27 vibrant states in the multilingual, multicultural and pluralistic Union of India."
+            className="container-fluid"
+        >
+            {/* SEARCH BAR AT TOP RIGHT */}
+            <div className="search-container">
+                <Search />
             </div>
 
-            {/* Categories Filter */}
-            <div className="container-fluid bg-success w-100 shadow">
-                <div className="row p-2">
-                    <Checkbox
-                        categories={categories}
-                        handleFilters={filters => handleFilters(filters, "category")}
-                    />
-                </div>
-            </div>
+            <h2 className="mb-4 text-center">Lets Explore!</h2>
 
-            {/* Description Section */}
-            <div className="container-fluid mb-2 p-1 shadow">
-                <h1 className="h1 text-center my-3 p-2 font-weight-bold">
-                    <span style={{ color: "orange" }}>Incre</span>
-                    <span style={{ color: "#e8e8e8" }}>dible</span>
-                    <span style={{ color: "green" }}> India!</span>
-                </h1>
-                <p className="text-justify mx-2">
-                    Travel to the 27 vibrant states in the multilingual, multicultural and pluralistic Union of India. Each of the Indian states has something exclusive to offer to wide-eyed tourists who flock throughout the year. India is a major travel and tourist destination because of its rich and versatile travel experience in terms of recreational and adventure activities, historic and modern tourist sites, cultural and spiritual insight. Travel to India is like exploring its treasure trove. The priceless monuments like the Taj Mahal and the Imambara attract tourists to India besides revealing its rich architectural and cultural heritage.
-                </p>
-            </div>
-
-            {/* Main Section */}
-            <div className="container-fluid">
-             <div className="row mt-3">
-    <div className="col-md-3 col-sm-12 filter-container shadow">
-        <Search />
-        <h5 className="h5 font-weight-bold text-warning text-center my-3 border-bottom">
-            Filter by price range
-        </h5>
-        <RadioBox
-            prices={prices}
-            handleFilters={filters => handleFilters(filters, "price")}
-        />
-    </div>
-
-    <div className="col-md-9 col-sm-12">
-
-                        <div className="row mx-auto">
-                            {filteredResults.map(product => (
-                                <div key={product._id} className="col-md-4 col-sm-6 col-xs-12 mb-3">
-                                    <Card product={product} />
-                                </div>
-                            ))}
-                        </div>
-                        <hr />
-                        {loadMoreButton()}
+            <div className="row">
+                {productsBySell.map((product, i) => (
+                    <div key={i} className="col-md-3 col-sm-6 mb-3">
+                        <Card product={product} />
                     </div>
-                </div>
+                ))}
             </div>
         </Layout>
     );
