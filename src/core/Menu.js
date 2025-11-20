@@ -153,15 +153,15 @@ const Menu = ({ history }) => (
                             style={isActive(history, "/about")}
                             to="/about"
                         >
-                            about Us
+                        About Us
                         </Link></Dropdown.Item>
-                <Dropdown.Item href="#/action-2"><Link
+                {/* <Dropdown.Item href="#/action-2"><Link
                             className="nav-link dropdownid"
                             style={isActive(history, "/team")}
                             to="/team"
                         >
                             Our Team
-                        </Link></Dropdown.Item>
+                        </Link></Dropdown.Item> */}
                 <Dropdown.Item href="#/action-3"><Link
                             className="nav-link dropdownid"
                             style={isActive(history, "/contact")}

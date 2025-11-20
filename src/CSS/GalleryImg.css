@@ -1,0 +1,41 @@
+/* Container styling */
+.container {
+  max-width: 1200px; /* limit width for large screens */
+  margin: 2rem auto; /* center the container */
+  padding: 1rem;
+  border-top: 2px solid #4caf50; /* green top border */
+  background-color: #f9f9f9; /* light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
+}
+
+/* Gallery images styling */
+.react-photo-gallery--gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* spacing between images */
+}
+
+.react-photo-gallery--gallery img {
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.react-photo-gallery--gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+}
+.react-photo-gallery--gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center; /* center images neatly */
+}

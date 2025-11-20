@@ -1,0 +1,130 @@
+/* ======= Homepage Container ======= */
+.container-fluid {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* ======= Carousel Section ======= */
+.coral-container,
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease forwards;
+}
+
+/* ======= Home Icons Section ======= */
+.home-icon-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  gap: 1.5rem;
+}
+
+.home-icon-container div {
+  background: #28a745;
+  color: #fff;
+  width: 120px;
+  height: 120px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.home-icon-container div:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ======= Gallery Heading ======= */
+#homegallery {
+  font-size: 2.2rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  animation: slideInDown 0.8s ease forwards;
+}
+
+#homegallery::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #28a745;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* ======= Gallery Section ======= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto 8rem auto; /* space from footer */
+  padding: 1rem;
+  border-top: 3px solid #28a745;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Gallery images */
+.react-photo-gallery--gallery img {
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease;
+  animation: fadeInUp 0.6s forwards;
+}
+
+.react-photo-gallery--gallery img:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Staggered fade-in for gallery images */
+.react-photo-gallery--gallery img:nth-child(1) { animation-delay: 0.1s; }
+.react-photo-gallery--gallery img:nth-child(2) { animation-delay: 0.2s; }
+.react-photo-gallery--gallery img:nth-child(3) { animation-delay: 0.3s; }
+.react-photo-gallery--gallery img:nth-child(4) { animation-delay: 0.4s; }
+.react-photo-gallery--gallery img:nth-child(5) { animation-delay: 0.5s; }
+
+/* ======= Animations ======= */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ======= Responsive Adjustments ======= */
+@media (max-width: 768px) {
+  .home-icon-container {
+    gap: 1rem;
+  }
+  #homegallery {
+    font-size: 1.8rem;
+  }
+  .container {
+    padding: 0.5rem;
+  }
+}

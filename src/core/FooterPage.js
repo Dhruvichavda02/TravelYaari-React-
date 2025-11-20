@@ -1,6 +1,7 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import { Link } from "react-router-dom";
+// import "../CSS/Footer.css"
 
 const FooterPagePro = () => {
   return (

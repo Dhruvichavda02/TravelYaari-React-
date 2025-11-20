@@ -1,56 +1,65 @@
-/* Container Section Background */
-.homeicon-section {
-    background: #f5fdf7; /* light greenish white */
-    padding: 50px 0;
+/* Smooth fade-in animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Card Wrapper */
-.homeicon-card {
-    background: #ffffff;
+/* Icon bounce animation on hover */
+@keyframes iconBounce {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* Card box */
+.homeicon-shadow {
+    height: 100%;                /* ensures all cards equal height */
+    padding: 30px;
+    background: #fff;
     border-radius: 20px;
-    padding: 30px 20px;
     text-align: center;
-    border: 2px solid #d9f5df; /* light green border */
-    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.08);
-    transition: all 0.4s ease-in-out;
-    height: 100%;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease;
 }
 
-/* Hover Animation */
-.homeicon-card:hover {
-    transform: translateY(-12px) scale(1.03);
-    box-shadow: 0 10px 20px rgba(0, 128, 0, 0.18);
-    border-color: #4caf50; /* darker green on hover */
+/* Hover effect */
+.homeicon-shadow:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
 
-/* Icon Styling */
-.homeicon-icon {
+/* Icon styling */
+.homeicon-shadow i {
     font-size: 55px;
-    color: #2f8f46; /* premium green */
-    transition: color 0.3s, transform 0.4s;
+    color: #9ed399;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
 }
 
-/* Icon hover effects */
-.homeicon-card:hover .homeicon-icon {
-    color: #4caf50;
-    transform: scale(1.1);
+/* Icon bounce on hover */
+.homeicon-shadow:hover i {
+    animation: iconBounce 0.5s ease-in-out;
+    color: #24d124;
 }
 
-/* Title */
-.homeicon-title {
-    font-weight: 700;
+/* Title styling */
+.homeicon-shadow h2 {
     font-size: 22px;
-    color: #1f4d2e; /* dark green */
-    margin-top: 15px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 10px;
 }
 
 /* Subtitle */
-.homeicon-subtitle {
-    color: #4b6b57;
+.homeicon-shadow p {
+    color: #555;
     font-size: 15px;
-}
-
-/* Equal height cards (Bootstrap fix) */
-.homeicon-row > div {
-    display: flex;
+    margin-top: 5px;
 }

@@ -1,33 +1,36 @@
-import React from 'react';
+import React from 'react'
 import "./../CSS/HomeIcon.css";
 
 export default function HomeIcon() {
     return (
-        <section className="homeicon-section mb-3 pb-5 pt-5">
+        <section className="mb-3 pb-5 pt-5" style={{ background: "#ebeae8" }}>
             <div className="container">
-                <div className="row homeicon-row">
+                <div className="row">
 
-                    <div className="col-sm-12 col-md-4 mb-3">
-                        <div className="homeicon-card">
-                            <i className="fa fa-map" aria-hidden="true"></i>
-                            <h2 className="homeicon-title">Discover Destinations</h2>
-                            <p className="homeicon-subtitle">Find the perfect adventure for your next journey.</p>
+                    {/* 1️⃣ Discover Destinations */}
+                    <div className="col-sm-12 col-md-4 mb-2">
+                        <div className="card-body text-center homeicon-shadow rounded bg-white">
+                            <i className="fa fa-globe" aria-hidden="true"></i>
+                            <h2 className="h2 m-2">Discover Destinations</h2>
+                            <p>Find the perfect place for your next trip.</p>
                         </div>
                     </div>
 
-                    <div className="col-sm-12 col-md-4 mb-3">
-                        <div className="homeicon-card">
-                            <i className="fa fa-suitcase" aria-hidden="true"></i>
-                            <h2 className="homeicon-title">Plan Your Trip</h2>
-                            <p className="homeicon-subtitle">Easy planning options tailored for every traveler.</p>
+                    {/* 2️⃣ Plan Your Journey */}
+                    <div className="col-sm-12 col-md-4 mb-2">
+                        <div className="card-body text-center homeicon-shadow rounded bg-white">
+                            <i className="fa fa-route" aria-hidden="true"></i>
+                            <h2 className="h2 m-2">Plan Your Journey</h2>
+                            <p>Curated travel packages just for you.</p>
                         </div>
                     </div>
 
-                    <div className="col-sm-12 col-md-4 mb-3">
-                        <div className="homeicon-card">
-                            <i className="fa fa-car" aria-hidden="true"></i>
-                            <h2 className="homeicon-title">Travel Smart</h2>
-                            <p className="homeicon-subtitle">Make your travel smooth with Travello's smart tools.</p>
+                    {/* 3️⃣ Book Your Adventure */}
+                    <div className="col-sm-12 col-md-4 mb-2">
+                        <div className="card-body text-center homeicon-shadow rounded bg-white">
+                            <i className="fa fa-suitcase-rolling" aria-hidden="true"></i>
+                            <h2 className="h2 m-2">Book Your Adventure</h2>
+                            <p>Secure your trips easily and affordably.</p>
                         </div>
                     </div>
 
